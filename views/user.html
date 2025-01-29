@@ -1,0 +1,30 @@
+{{ define "content" }}
+<h1>User Management</h1>
+
+<!-- User Form -->
+<form action="/user" method="POST">
+    <input type="text" name="name" placeholder="Enter Name" required>
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <select name="role">
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+    </select>
+    <button type="submit">Add User</button>
+</form>
+
+<!-- User List -->
+<h2>Users</h2>
+<div>
+    {{ if .Users }}
+        {{ range .Users }}
+            <div class="contact-card">
+                <p><strong>Name:</strong> {{ .Name }}</p>
+                <p><strong>Email:</strong> {{ .Email }}</p>
+                <p><strong>Role:</strong> {{ .Role }}</p>
+            </div>
+        {{ end }}
+    {{ else }}
+        <p>No users found. Please add some users.</p>
+    {{ end }}
+</div>
+{{ end }}

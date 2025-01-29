@@ -1,0 +1,23 @@
+{{ define "content" }}
+<h1>Role Management</h1>
+
+<!-- Role Form -->
+<form action="/create_role" method="POST">
+    <input type="text" name="role_name" placeholder="Enter Role Name" required>
+    <button type="submit">Create Role</button>
+</form>
+
+<!-- Role List -->
+<h2>Roles</h2>
+<div>
+    {{ if .Roles }}
+        {{ range .Roles }}
+            <div class="contact-card">
+                <p><strong>Role Name:</strong> {{ .Name }}</p>
+            </div>
+        {{ end }}
+    {{ else }}
+        <p>No roles available.</p>
+    {{ end }}
+</div>
+{{ end }}

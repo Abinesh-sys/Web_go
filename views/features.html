@@ -1,0 +1,23 @@
+{{ define "content" }}
+<h1>Feature Management</h1>
+
+<!-- Add Feature -->
+<form action="/manage_features" method="POST">
+    <input type="text" name="feature_name" placeholder="Enter Feature Name" required>
+    <button type="submit">Add Feature</button>
+</form>
+
+<!-- Feature List -->
+<h2>Features</h2>
+<div>
+    {{ if .Features }}
+        {{ range .Features }}
+            <div class="contact-card">
+                <p><strong>Feature Name:</strong> {{ .Name }}</p>
+            </div>
+        {{ end }}
+    {{ else }}
+        <p>No features available.</p>
+    {{ end }}
+</div>
+{{ end }}

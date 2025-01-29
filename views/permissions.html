@@ -1,0 +1,29 @@
+{{ define "content" }}
+<h1>Permission Management</h1>
+
+<!-- Assign Permission -->
+<form action="/manage_permissions" method="POST">
+    <select name="role_id">
+        {{ range .Roles }}
+            <option value="{{ .ID }}">{{ .Name }}</option>
+        {{ end }}
+    </select>
+    <input type="text" name="permission_name" placeholder="Enter Permission Name" required>
+    <button type="submit">Assign Permission</button>
+</form>
+
+<!-- Permission List -->
+<h2>Permissions</h2>
+<div>
+    {{ if .Permissions }}
+        {{ range .Permissions }}
+            <div class="contact-card">
+                <p><strong>Permission:</strong> {{ .Name }}</p>
+                <p><strong>Role:</strong> {{ .RoleName }}</p>
+            </div>
+        {{ end }}
+    {{ else }}
+        <p>No permissions assigned yet.</p>
+    {{ end }}
+</div>
+{{ end }}
