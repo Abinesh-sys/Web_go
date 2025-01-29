@@ -1,9 +1,17 @@
 package main
 
 import (
-	"fmt"
+	"webgolang/database"
+	"webgolang/routes"
+	"log"
+	"net/http"
 )
 
 func main() {
-	fmt.Println("Hello World")
+	database.InitDB()
+
+	router := routes.RegisterRoutes()
+
+	log.Println("Server started at http://localhost:8080")
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
