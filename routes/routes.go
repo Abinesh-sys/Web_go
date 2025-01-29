@@ -7,9 +7,19 @@ import (
 
 func RegisterRoutes() *http.ServeMux {
 	router := http.NewServeMux()
-	router.HandleFunc("/user", controllers.GetUser)
-	router.HandleFunc("/create_role", controllers.CreateRole)
-	router.HandleFunc("/manage_permissions", controllers.ManagePermissions)
-	router.HandleFunc("/manage_features", controllers.ManageFeatures)
+
+	// Serve Static Files
+	router.Handle("/views/", http.StripPrefix("/views/", http.FileServer(http.Dir("views"))))
+
+	// User Routes
+	router.HandleFunc("/users", controllers.GetUser)
+	router.HandleFunc("/user", controllers.CreateUser)
+
+	// Serve Home Page
+	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "views/index.html")
+	})
+
 	return router
 }
+
