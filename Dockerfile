@@ -1,9 +1,14 @@
-FROM golang:1.19-alpine
+# Use Go image
+FROM golang:1.20
 
-WORKDIR /go/src/app
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod tidy
+
 COPY . .
 
-RUN go mod tidy
 RUN go build -o main .
 
 CMD ["./main"]
+
