@@ -1,10 +1,27 @@
-{{ define "content" }}
-<h1>Welcome to the User Management System</h1>
-<p>Select an option:</p>
-<ul>
-    <li><a href="/users">Manage Users</a></li>
-    <li><a href="/roles">Manage Roles</a></li>
-    <li><a href="/permissions">Manage Permissions</a></li>
-    <li><a href="/features">Manage Features</a></li>
-</ul>
-{{ end }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="/views/css/style.css">
+</head>
+<body>
+    {{ define "content" }}
+    <div class="container">
+        <h1>Welcome</h1>
+        <p class="content">Select an option:</p>
+        
+        <ul>
+            <li><a href="/users"> Users</a></li>
+            <li><a href="/roles"> Roles</a></li>
+            <li><a href="/permissions"> Permissions</a></li>
+            <li><a href="/features"> Features</a></li>
+        </ul>
+    </div>
+    {{ end }}
+</body>
+</html>
+
