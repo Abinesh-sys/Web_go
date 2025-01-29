@@ -1,5 +1,4 @@
-{{ define "content" }}
-<h1>Permission Management</h1>
+<h1>Permission</h1>
 
 <!-- Assign Permission -->
 <form action="/manage_permissions" method="POST">
@@ -15,15 +14,12 @@
 <!-- Permission List -->
 <h2>Permissions</h2>
 <div>
-    {{ if .Permissions }}
-        {{ range .Permissions }}
+    
             <div class="contact-card">
-                <p><strong>Permission:</strong> {{ .Name }}</p>
-                <p><strong>Role:</strong> {{ .RoleName }}</p>
+                <p><strong>Permission:</strong> </p>
+                <p><strong>Role:</strong> </p>
             </div>
-        {{ end }}
-    {{ else }}
-        <p>No permissions assigned yet.</p>
-    {{ end }}
+        
+
 </div>
-{{ end }}
+

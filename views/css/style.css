@@ -20,7 +20,7 @@ body {
 /* Header */
 h1 {
     font-size: 36px;
-    color: #4a90e2;
+    color: #47dcfa;
     margin-bottom: 20px;
 }
 
@@ -35,7 +35,7 @@ h1 {
 button, a {
     display: inline-block;
     text-decoration: none;
-    background-color: #4a90e2;
+    background-color: #47dcfa;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -45,7 +45,7 @@ button, a {
 }
 
 button:hover, a:hover {
-    background-color: #357ab7;
+    background-color: #000000;
 }
 
 /* List of Options */
@@ -62,12 +62,12 @@ li {
 /* Option Item Style */
 li a {
     font-size: 18px;
-    color: #4a90e2;
+    color: #0f1215;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 li a:hover {
-    color: #357ab7;
+    color: #dee3e7;
 }

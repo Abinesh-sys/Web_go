@@ -1,5 +1,4 @@
-{{ define "content" }}
-<h1>Feature Management</h1>
+<h1>Feature</h1>
 
 <!-- Add Feature -->
 <form action="/manage_features" method="POST">
@@ -10,14 +9,13 @@
 <!-- Feature List -->
 <h2>Features</h2>
 <div>
-    {{ if .Features }}
-        {{ range .Features }}
+        
             <div class="contact-card">
-                <p><strong>Feature Name:</strong> {{ .Name }}</p>
+                <p><strong>Feature Name:</strong> </p>
             </div>
-        {{ end }}
-    {{ else }}
+
+    
         <p>No features available.</p>
-    {{ end }}
+    
 </div>
-{{ end }}
+
