@@ -10,10 +10,10 @@ import (
 func main() {
 	database.InitDB()
 
-	router := routes.RegisterRoutes()
+	r := routes.RegisterRoutes()
 
 	log.Println("Server started at http://localhost:9090")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(":8080", r))
 }
 
 

@@ -1,21 +1,93 @@
-<h1>Feature</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features</title>
+  <link rel="stylesheet" href="/views/css/features.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Feature</h1>
+    </header>
+    
+    <!-- Display Features -->
+    <section class="features">
+      <h2>Existing Features</h2>
+      <ul id="feature-list">
+        <!-- Features will be populated here by JavaScript -->
+      </ul>
+    </section>
 
-<!-- Add Feature -->
-<form action="/manage_features" method="POST">
-    <input type="text" name="feature_name" placeholder="Enter Feature Name" required>
-    <button type="submit">Add Feature</button>
-</form>
-
-<!-- Feature List -->
-<h2>Features</h2>
-<div>
+    <!-- Add Feature Form -->
+    <section class="add-feature">
+      <h2>Add New Feature</h2>
+      <form id="feature-form">
+        <label for="name">Feature Name:</label>
+        <input type="text" id="name" name="name" required>
         
-            <div class="contact-card">
-                <p><strong>Feature Name:</strong> </p>
-            </div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        
+        <label for="is_active">Is Active:</label>
+        <select id="is_active" name="is_active" required>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+        
+        <button type="submit">Add Feature</button>
+      </form>
+    </section>
+  </div>
 
-    
-        <p>No features available.</p>
-    
-</div>
+  <script>
+    // Fetch and display features from the API
+    async function loadFeatures() {
+      const response = await fetch('/features'); // Adjust the endpoint if necessary
+      const features = await response.json();
+
+      const featureList = document.getElementById('feature-list');
+      featureList.innerHTML = ''; // Clear the list before adding new items
+
+      features.forEach(feature => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${feature.name} - ${feature.description} (${feature.is_active ? 'Active' : 'Inactive'})`;
+        featureList.appendChild(listItem);
+      });
+    }
+
+    // Handle form submission to create a new feature
+    document.getElementById('feature-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      
+      const formData = new FormData(event.target);
+      const newFeature = {
+        name: formData.get('name'),
+        description: formData.get('description'),
+        is_active: formData.get('is_active') === 'true'
+      };
+      
+      const response = await fetch('/features', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newFeature)
+      });
+
+      if (response.ok) {
+        loadFeatures(); // Reload the feature list after successful submission
+        event.target.reset(); // Reset the form fields
+      } else {
+        alert('Error creating feature');
+      }
+    });
+
+    // Load features on page load
+    window.onload = loadFeatures;
+  </script>
+</body>
+</html>
+
 
