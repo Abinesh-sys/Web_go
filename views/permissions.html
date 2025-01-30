@@ -1,25 +1,46 @@
-<h1>Permission</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permissions</title>
+    <link rel="stylesheet" href="/views/css/permission.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Permissions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Feature ID</th>
+                    <th>Role ID</th>
+                </tr>
+            </thead>
+            <tbody id="permissionTableBody">
+                <!-- Data will be populated dynamically -->
+            </tbody>
+        </table>
+    </div>
 
-<!-- Assign Permission -->
-<form action="/manage_permissions" method="POST">
-    <select name="role_id">
-        {{ range .Roles }}
-            <option value="{{ .ID }}"></option>
-        {{ end }}
-    </select>
-    <input type="text" name="permission_name" placeholder="Enter Permission Name" required>
-    <button type="submit">Assign Permission</button>
-</form>
-
-<!-- Permission List -->
-<h2>Permissions</h2>
-<div>
-    
-            <div class="contact-card">
-                <p><strong>Permission:</strong> </p>
-                <p><strong>Role:</strong> </p>
-            </div>
-        
-
-</div>
+    <script>
+        fetch('/permissions')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('permissionTableBody');
+                data.forEach(permission => {
+                    const row = `<tr>
+                        <td>${permission.id}</td>
+                        <td>${permission.name}</td>
+                        <td>${permission.feature_id}</td>
+                        <td>${permission.role_id}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            })
+            .catch(error => console.error('Error fetching permissions:', error));
+    </script>
+</body>
+</html>
 
