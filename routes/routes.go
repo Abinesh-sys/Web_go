@@ -7,38 +7,40 @@ import (
 )
 
 func RegisterRoutes() *mux.Router {
-	r := mux.NewRouter()
+		r := mux.NewRouter()
 
-	// Create a new instance of the FeatureController
-	featureController := &controllers.FeatureController{}
+		// Create a new instance of the FeatureController
+		featureController := &controllers.FeatureController{}
 
-	// Serve Static Files
-	r.PathPrefix("/views/").Handler(http.StripPrefix("/views/", http.FileServer(http.Dir("views"))))
+		// Serve Static Files
+		r.PathPrefix("/uploads/").Handler(http.StripPrefix("/uploads/", http.FileServer(http.Dir("uploads"))))
 
-	// User Routes
-	r.HandleFunc("/users", controllers.GetUser).Methods("GET")
-	r.HandleFunc("/user", controllers.CreateUser).Methods("POST")
 
-	// Role Routes
-	r.HandleFunc("/roles/{id}", controllers.GetRoleByIDHandler).Methods("GET")
-	r.HandleFunc("/roles", controllers.CreateRoleHandler).Methods("POST")
+		// User Routes
+		r.HandleFunc("/users", controllers.GetUser).Methods("GET")
+		r.HandleFunc("/user", controllers.CreateUser).Methods("POST")
 
-	// Permission Routes
-	r.HandleFunc("/permissions", controllers.GetPermissionsHandler).Methods("GET")
-	r.HandleFunc("/permissions", controllers.CreatePermissionHandler).Methods("POST")
+		// Role Routes
+		r.HandleFunc("/roles/{id}", controllers.GetRoleByIDHandler).Methods("GET")
+		r.HandleFunc("/roles", controllers.CreateRoleHandler).Methods("POST")
 
-	// Feature routes
-	r.HandleFunc("/features", featureController.GetFeatures).Methods("GET")           // Get all features
-	r.HandleFunc("/features/{id}", featureController.GetFeature).Methods("GET")      // Get a feature by ID
-	r.HandleFunc("/features", featureController.CreateFeature).Methods("POST")      // Create a new feature
+		// Permission Routes
+		r.HandleFunc("/permissions", controllers.GetPermissionsHandler).Methods("GET")
+		r.HandleFunc("/permissions", controllers.CreatePermissionHandler).Methods("POST")
 
-	// Serve Home Page
-	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "views/index.html")
-	}).Methods("GET")
+		// Feature routes
+		r.HandleFunc("/features", featureController.GetFeatures).Methods("GET")           // Get all features
+		r.HandleFunc("/features/{id}", featureController.GetFeature).Methods("GET")      // Get a feature by ID
+		r.HandleFunc("/features", featureController.CreateFeature).Methods("POST")      // Create a new feature
 
-	return r
+		// Serve Home Page
+		r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+			http.ServeFile(w, r, "views/index.html")
+		}).Methods("GET")
+
+		return r
 }
+
 
 
 

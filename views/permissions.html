@@ -25,22 +25,34 @@
     </div>
 
     <script>
-        fetch('/permissions')
-            .then(response => response.json())
-            .then(data => {
-                const tableBody = document.getElementById('permissionTableBody');
-                data.forEach(permission => {
-                    const row = `<tr>
-                        <td>${permission.id}</td>
-                        <td>${permission.name}</td>
-                        <td>${permission.feature_id}</td>
-                        <td>${permission.role_id}</td>
-                    </tr>`;
-                    tableBody.innerHTML += row;
-                });
-            })
-            .catch(error => console.error('Error fetching permissions:', error));
+        // Simulating data (replace with real fetch call if you have a backend)
+        const sampleData = [
+            { id: 1, name: "Read", feature_id: 101, role_id: 1 },
+            { id: 2, name: "Write", feature_id: 102, role_id: 2 },
+            { id: 3, name: "Delete", feature_id: 103, role_id: 1 },
+            { id: 4, name: "Admin", feature_id: 104, role_id: 3 }
+        ];
+
+        // Fetch data (replace this with your fetch('/permissions') call)
+        // fetch('/permissions')
+        //     .then(response => response.json())
+        //     .then(data => {
+            const data = sampleData; // Use sample data for now
+
+            const tableBody = document.getElementById('permissionTableBody');
+            data.forEach(permission => {
+                const row = `<tr>
+                    <td>${permission.id}</td>
+                    <td>${permission.name}</td>
+                    <td>${permission.feature_id}</td>
+                    <td>${permission.role_id}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        //     })
+        //     .catch(error => console.error('Error fetching permissions:', error));
     </script>
 </body>
 </html>
+
 
