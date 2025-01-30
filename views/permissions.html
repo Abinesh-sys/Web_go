@@ -4,7 +4,7 @@
 <form action="/manage_permissions" method="POST">
     <select name="role_id">
         {{ range .Roles }}
-            <option value="{{ .ID }}">{{ .Name }}</option>
+            <option value="{{ .ID }}"></option>
         {{ end }}
     </select>
     <input type="text" name="permission_name" placeholder="Enter Permission Name" required>

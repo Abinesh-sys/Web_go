@@ -1,0 +1,130 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #4a90e2;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #4a90e2;
+    margin-bottom: 20px;
+}
+
+/* User Creation Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form input,
+form button {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form input[type="file"] {
+    padding: 8px;
+    background-color: #f9f9f9;
+}
+
+form button {
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #357ab7;
+}
+
+/* User Cards */
+.contact-card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Adjust width as needed */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 80px; /* Adjust this size if the image is too small or large */
+    height: 80px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover;
+    display: block;  /* Ensures the image covers the circle area without stretching */
+    margin-bottom: 10px; /* Adds space below the image */
+}
+
+
+.contact-card p {
+    font-size: 18px;
+    color: #333;
+    margin: 8px 0; /* Adds spacing between each item */
+}
+
+.contact-card strong {
+    color: #4a90e2; /* Blue color for the labels (Name, Email, Role) */
+}
+
+
+/* User List Section */
+div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .contact-card {
+        width: 100%;
+    }
+}
+

@@ -1,18 +1,45 @@
-<h1>Role</h1>
-
-<!-- Role Form -->
-<form action="/create_role" method="POST">
-    <input type="text" name="role_name" placeholder="Enter Role Name" required>
-    <button type="submit">Create Role</button>
-</form>
-
-<!-- Role List -->
-<h2>Roles</h2>
-<div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role</title>
+    <link rel="stylesheet" href="/views/css/role.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Role</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Role Name</th>
+                    <th>Role Icon</th>
+                    <th>Can Self Register</th>
+                </tr>
+            </thead>
+            <tbody id="roleTableBody">
+                <!-- Roles will be dynamically added here -->
+            </tbody>
+        </table>
+        
+        <h2>Add New Role</h2>
+        <form id="roleForm">
+            <label for="roleName">Role Name:</label>
+            <input type="text" id="roleName" name="roleName" required>
+            
+            <label for="roleIcon">Role Icon:</label>
+            <input type="text" id="roleIcon" name="roleIcon" required>
+            
+            <label for="canSelfRegister">Can Self Register:</label>
+            <input type="checkbox" id="canSelfRegister" name="canSelfRegister">
+            
+            <button type="submit">Add Role</button>
+        </form>
+    </div>
     
-            <div class="contact-card">
-                <p><strong>Role Name:</strong> </p>
-            </div>
-    
-</div>
+    <script src="script.js"></script>
+</body>
+</html>
 

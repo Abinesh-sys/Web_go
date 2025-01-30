@@ -1,35 +1,47 @@
-
-<h1>User</h1>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="/views/css/user.css">
+</head>
+<body>
 <!-- User Creation Form -->
-<h2>Create New User</h2>
-<form action="/user" method="POST" enctype="multipart/form-data">
-    <input type="text" name="name" placeholder="Enter Name" required>
-    <input type="email" name="email" placeholder="Enter Email" required>
-    <input type="password" name="password" placeholder="Enter Password" required>
-    <input type="text" name="role_id" placeholder="Enter Role ID" required>
-    <input type="file" name="profile_photo">
-    <button type="submit">Create User</button>
-</form>
+    <h2>Create New User</h2>
+    <form action="/user" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Enter Name" required>
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <input type="text" name="role_id" placeholder="Enter Role ID" required>
+        <input type="file" name="profile_photo">
+        <button type="submit">Create User</button>
+    </form>
 
-<!-- User List -->
-<h2>Users</h2>
-<div>
-    <!-- This is where you would dynamically load user data -->
-    <div class="contact-card">
-        <p><strong>Name:</strong> John Doe</p>
-        <p><strong>Email:</strong> john@example.com</p>
-        <p><strong>Role:</strong> Admin</p>
+    <!-- User List -->
+    
+    <h2>Users</h2>
+    <div>
+        <!-- This is where you would dynamically load user data -->
+        <div class="contact-card">
+            <img src="/uploads/sam.jpg" alt="User Picture" class="profile-photo">
+            <p><strong>Name:</strong> Abinesh</p>
+            <p><strong>Email:</strong> Abinesh@example.com</p>
+            <p><strong>Role:</strong> Admin</p>
+        </div>
+        
+        <div class="contact-card">
+            <img src="/uploads/max.png" alt="User Picture" class="profile-photo">
+            <p><strong>Name:</strong> Jane</p>
+            <p><strong>Email:</strong> jane@example.com</p>
+            <p><strong>Role:</strong> User</p>
+        </div>
+        <!-- Add more user cards as needed -->
     </div>
-    <div class="contact-card">
-        <p><strong>Name:</strong> Jane Smith</p>
-        <p><strong>Email:</strong> jane@example.com</p>
-        <p><strong>Role:</strong> User</p>
-    </div>
-    <!-- Add more user cards as needed -->
-</div>
 
 </body>
 </html>
+
 
 

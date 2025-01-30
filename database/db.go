@@ -32,3 +32,5 @@ func InitDB() {
 
 	log.Println("Database connected successfully")
 }
+
+
